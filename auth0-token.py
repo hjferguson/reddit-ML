@@ -4,35 +4,41 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
+
+
+
 SECRET_KEY = os.getenv('SECRET')
 PERSONAL_KEY = os.getenv('PERSONAL')
 USER = os.getenv('USER')
 PASSWORD = os.getenv('PASS')
 
-auth = requests.auth.HTTPBasicAuth(PERSONAL_KEY,SECRET_KEY)
+def show_sub_stats(secret_key, personal key,user,password,subreddit):
+    
 
-#pass login method as a dictionary
-data = {'grant_type' : 'password',
-        'username' : USER,
-        'password' : PASSWORD
-        }
+        auth = requests.auth.HTTPBasicAuth(PERSONAL_KEY,SECRET_KEY)
 
-#set up required header information
-headers = {'User-Agent' : 'community_vibe - script that predicts community engagement'}
+        #pass login method as a dictionary
+        data = {'grant_type' : 'password',
+                'username' : USER,
+                'password' : PASSWORD
+                }
 
-#send the request to auth0
+        #set up required header information
+        headers = {'User-Agent' : 'community_vibe - script that predicts community engagement'}
 
-res = requests.post('https://www.reddit.com/api/v1/access_token', auth=auth, data=data, headers=headers)
+        #send the request to auth0
 
-#convert response to JSON and take the token
-TOKEN = res.json()['access_token']
+        res = requests.post('https://www.reddit.com/api/v1/access_token', auth=auth, data=data, headers=headers)
 
-#add auth to our headers
-headers = {**headers, **{'Authorization': f"bearer {TOKEN}"}}
+        #convert response to JSON and take the token
+        TOKEN = res.json()['access_token']
 
-requests.get('https://oauth.reddit.com/api/v1/me, headers=headers')
+        #add auth to our headers
+        headers = {**headers, **{'Authorization': f"bearer {TOKEN}"}}
 
-res = requests.get("https://oauth.reddit.com/r/2007scape/hot", headers=headers)
+        requests.get('https://oauth.reddit.com/api/v1/me, headers=headers')
 
-for post in res.json()['data']['children']:
-    print(post['data']['title'])
+        res = requests.get("https://oauth.reddit.com/r/2007scape/hot", headers=headers)
+
+        for post in res.json()['data']['children']:
+                print(post['data']['title'])
