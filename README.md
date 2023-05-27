@@ -1,7 +1,8 @@
 # reddit-ML
 ML model that figures overall sentiment of a reddit community
 
-Set up:
+<h1>Set up:</h1>
+
 🟢 Create a '.env' and add your secret and personal use script keys. Also store your reddit user and password
     The format should be this:
 
