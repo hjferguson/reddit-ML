@@ -6,28 +6,31 @@ def show_sub_stats(secret_key, personal_key,user,password,subreddit):
 
         auth = requests.auth.HTTPBasicAuth(personal_key,secret_key)
 
-        #pass login method as a dictionary
-        data = {'grant_type' : 'password',
-                'username' : user,
-                'password' : password
-                }
+        data = {
+        'grant_type' : 'password',
+        'username' : user,
+        'password' : password
+        }
 
-        #set up required header information
-        headers = {'User-Agent' : 'community_vibe - script that predicts community engagement'}
-
-        #send the request to auth0
+        headers = {'User-Agent' : 'predicts subreddit based off title of post'}
 
         res = requests.post('https://www.reddit.com/api/v1/access_token', auth=auth, data=data, headers=headers)
 
-        #convert response to JSON and take the token
-        TOKEN = res.json()['access_token']
+        if res.status_code == 200:
+                TOKEN = res.json()['access_token']
+                headers = {**headers, **{'Authorization': f"bearer {TOKEN}"}}
 
-        #add auth to our headers
-        headers = {**headers, **{'Authorization': f"bearer {TOKEN}"}}
+                res = requests.get("https://oauth.reddit.com/r/" + subreddit + "/hot", headers=headers)
 
-        requests.get('https://oauth.reddit.com/api/v1/me, headers=headers')
-
-        res = requests.get("https://oauth.reddit.com/r/" + subreddit + "/hot", headers=headers)
-
-        for post in res.json()['data']['children']:
-                print(post['data']['title'])
+                if res.status_code == 200:  # successful request
+                        response_json = res.json()
+                        if 'data' in response_json:
+                                for post in response_json['data']['children']:
+                                        print(post['data']['title'])
+                        else:
+                                print("The key 'data' is not in the response.")
+                                print("Response:", response_json)
+                else:
+                        print("Failed to get data from Reddit API. Status code:", res.status_code)
+        else:
+                print("Failed to get token from Reddit API. Status code:", res.status_code)
