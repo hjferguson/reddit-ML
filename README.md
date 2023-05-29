@@ -1,5 +1,5 @@
 # reddit-ML
-ML model that figures overall sentiment of a reddit community
+ML model that takes a reddit post title and guesses which subreddit it belongs to
 
 <h1>Set up:</h1>
 
