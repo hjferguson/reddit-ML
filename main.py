@@ -1,6 +1,10 @@
 from dotenv import load_dotenv #used for grabbing credentials from the .env file
 import os
 from auth0_token import show_sub_stats
+import pandas as pd
+import time
+
+df = pd.DataFrame(columns=['Subreddit','Title']) #store the title of the subreddit and it's title
 
 load_dotenv()
 SECRET_KEY = os.getenv('SECRET')
@@ -9,20 +13,24 @@ USER = os.getenv('USER')
 PASSWORD = os.getenv('PASS')
 SUB = "Showerthoughts"
 
-#see if I can loop through the subreddits
-f = open("subreddits.txt","r")
-for x in f:
-    if x == "crazyideas":
-        break
-    sub = x.rstrip()
-
+#loop through subreddits.txt and insert results into the df
 with open("subreddits.txt","r") as f:
     for x in f:
         sub = x.strip('\r\n')
-        if sub == "changemyview": #for testing
-            break
-        print("=======")
-        print(f"Sub is: {sub}")
-        print("=======")
-        #sub = x.strip('\r\n')
-        show_sub_stats(SECRET_KEY, PERSONAL_KEY, USER, PASSWORD,sub)
+        df_sub = show_sub_stats(SECRET_KEY, PERSONAL_KEY, USER, PASSWORD, sub)
+        df = pd.concat([df, df_sub], ignore_index=True)
+
+        #pause for 1 sec per request to stay within Reddit's 60 req/min rule
+        time.sleep(1)
+
+while True:
+    print("Would you like to save the dataframe? Y/N")
+    answer = input()
+    if answer == "y" or answer == "Y":
+        df.to_csv('reddit_title_data.csv', index=False)
+        break
+    if answer == "n" or answer == "N":
+        print("ok bye")
+        break
+    else:
+        print("Please input Y/N")
