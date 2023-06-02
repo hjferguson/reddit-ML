@@ -1,0 +1,31 @@
+                   precision    recall  f1-score   support
+
+              Art       0.82      0.99      0.90       108
+        AskReddit       0.47      0.59      0.52       104
+        EarthPorn       0.64      0.98      0.77        93
+             IAmA       0.74      0.90      0.81        50
+            Jokes       0.37      0.33      0.35        90
+      LifeProTips       0.68      0.99      0.81       103
+            Music       0.68      0.57      0.62        97
+   Showerthoughts       0.32      0.17      0.22        66
+       askscience       0.48      0.35      0.40        95
+              aww       0.54      0.51      0.53       110
+            books       0.64      0.53      0.58        72
+explainlikeimfive       0.74      1.00      0.85       100
+             food       0.79      1.00      0.88        92
+            funny       0.05      0.01      0.02        77
+           gaming       0.45      0.24      0.32        41
+             gifs       0.40      0.24      0.30       106
+mildlyinteresting       0.21      0.48      0.29        83
+           movies       0.45      0.35      0.39        83
+             news       0.47      0.33      0.39        69
+      nottheonion       0.39      0.28      0.32        98
+             pics       0.27      0.14      0.19       106
+          science       0.68      0.77      0.72       107
+    todayilearned       0.69      0.89      0.78       104
+           videos       0.22      0.13      0.16       102
+        worldnews       0.62      0.73      0.67        93
+
+         accuracy                           0.55      2249
+        macro avg       0.51      0.54      0.51      2249
+     weighted avg       0.52      0.55      0.52      2249
