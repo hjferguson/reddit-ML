@@ -53,7 +53,7 @@ else:
     
     df = pd.DataFrame(columns=['subreddit','title']) #store the name of the subreddit and it's title
 
-    with open("subreddits.txt","r") as f: #add as many subreddit as you like, just maintain the format because there is no error handling :D
+    with open("subreddits.txt","r") as f: #add as many subreddits as you like, just maintain the format because there is no error handling :D
         for x in f:
             sub = x.strip('\r\n')
             df_sub = show_sub_stats(SECRET_KEY, PERSONAL_KEY, USER, PASSWORD, sub)
