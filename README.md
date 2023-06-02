@@ -17,3 +17,5 @@ ML model that takes a reddit post title and guesses which subreddit it belongs t
 
 🟢 Run the 'main.py' program
 
+⛔⛔I recommend not touching any part of the code that uses the 'time' module. Reddit has specific rules with their API and if you make too many requests 
+you may be blocked from using their API in the future. It is currently set to adhere to 60 requests per minute.⛔⛔

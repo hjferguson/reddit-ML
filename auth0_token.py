@@ -44,7 +44,7 @@ def show_sub_stats(secret_key, personal_key,user,password,subreddit):
                     print("Response:", response_json)
             else:
                 print("Failed to get data from Reddit API. Status code:", res.status_code)
-            time.sleep(1)  # sleep for 1 second to respect the rate limit
+            time.sleep(1)  #IMPORTANT!! KEEP OR ACCOUNT CAN LOSE API ACCESS
     else:
         print("Failed to get token from Reddit API. Status code:", res.status_code)
 
