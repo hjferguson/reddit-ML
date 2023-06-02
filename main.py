@@ -23,7 +23,7 @@ with open("subreddits.txt","r") as f: #add as many subreddit as you like, just m
         df = pd.concat([df, df_sub], ignore_index=True)
 
         #pause for 1 sec per request to stay within Reddit's 60 req/min rule
-        time.sleep(1)
+        time.sleep(1) #IMPORTANT
 
 while True:
     print("Would you like to save the dataframe? Y/N")
