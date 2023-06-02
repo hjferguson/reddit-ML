@@ -26,8 +26,9 @@ with open("subreddits.txt","r") as f: #add as many subreddit as you like, just m
         time.sleep(1) #IMPORTANT
 
 print("Saving df to csv...")
+print("WARNING! If you already have a reddit_title_data.csv file in your directory, it will be overwritten!")
+time.sleep(2) 
 df.to_csv('reddit_title_data.csv', index=False)
 
-#so at this point, we have titles from 25 different sub reddits. Around 11.2k at the time of writing.
-#now need to clean the text. I first noticed there are emojis. So that needs to get dealt with. 
+X = redditCleaner(df) #returns cleaned and vectorized array
 
