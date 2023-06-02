@@ -4,7 +4,7 @@ from auth0_token import show_sub_stats
 import pandas as pd
 import time
 
-df = pd.DataFrame(columns=['Subreddit','Title']) #store the title of the subreddit and it's title
+df = pd.DataFrame(columns=['subreddit','title']) #store the title of the subreddit and it's title
 
 load_dotenv()
 SECRET_KEY = os.getenv('SECRET')
