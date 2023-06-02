@@ -4,6 +4,9 @@ from auth0_token import show_sub_stats
 import pandas as pd
 import time
 from cleanFunction import redditCleaner
+from sklearn.model_selection import train_test_split
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import classification_report
 
 #pulls credentials from .env file. Required for working with reddit API
 load_dotenv()
@@ -66,3 +69,22 @@ else:
 
 # Once you have your DataFrame, whether it's from a new collection or an existing file, you can clean it
 X = redditCleaner(df) #returns cleaned and vectorized array
+y = df['subreddit']
+
+#split the data into training and tests
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+model = MultinomialNB()
+
+#training time!
+model.fit(X_train, y_train)
+
+#predict the labels for test data
+y_pred = model.predict(X_test)
+
+#evaluation
+report = classification_report(y_test, y_pred)
+
+#save the report to a file
+with open('classification_report.txt', 'w') as f:
+    f.write(report)
