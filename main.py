@@ -3,18 +3,20 @@ import os
 from auth0_token import show_sub_stats
 import pandas as pd
 import time
+from cleanFunction import redditCleaner
 
-df = pd.DataFrame(columns=['subreddit','title']) #store the title of the subreddit and it's title
+df = pd.DataFrame(columns=['subreddit','title']) #store the name of the subreddit and it's title
 
+#pulls credentials from .env file. Required for working with reddit API
 load_dotenv()
 SECRET_KEY = os.getenv('SECRET')
 PERSONAL_KEY = os.getenv('PERSONAL')
 USER = os.getenv('USER')
 PASSWORD = os.getenv('PASS')
-SUB = "Showerthoughts"
+
 
 #loop through subreddits.txt and insert results into the df
-with open("subreddits.txt","r") as f:
+with open("subreddits.txt","r") as f: #add as many subreddit as you like, just maintain the format because there is no error handling :D
     for x in f:
         sub = x.strip('\r\n')
         df_sub = show_sub_stats(SECRET_KEY, PERSONAL_KEY, USER, PASSWORD, sub)
