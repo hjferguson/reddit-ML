@@ -1,3 +1,4 @@
+#Written by Harlan Ferguson. Wanted to dip my toes into ML
 from dotenv import load_dotenv #used for grabbing credentials from the .env file
 import os
 from auth0_token import show_sub_stats
