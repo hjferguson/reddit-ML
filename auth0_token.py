@@ -5,7 +5,7 @@ import time
 
 def show_sub_stats(secret_key, personal_key,user,password,subreddit):
     
-    df = pd.DataFrame(columns=['Subreddit', 'Title'])
+    df = pd.DataFrame(columns=['subreddit', 'title'])
 
     auth = requests.auth.HTTPBasicAuth(personal_key,secret_key)
 
@@ -34,7 +34,7 @@ def show_sub_stats(secret_key, personal_key,user,password,subreddit):
                 response_json = res.json()
                 if 'data' in response_json:
                     for post in response_json['data']['children']:
-                        new_row = {'Subreddit' : subreddit, 'Title' : post['data']['title']}
+                        new_row = {'subreddit' : subreddit, 'title' : post['data']['title']}
                         df = pd.concat([df, pd.DataFrame(new_row, index=[0])], ignore_index=True)
                     cursor = response_json['data']['after']  # get the cursor for the next page of results
                     if cursor is None:  # if there's no cursor, we've reached the end of the posts
