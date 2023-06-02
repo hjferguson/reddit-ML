@@ -1,4 +1,3 @@
-announcements
 funny
 AskReddit
 gaming
@@ -23,3 +22,4 @@ explainlikeimfive
 Art
 books
 mildlyinteresting
+nottheonion

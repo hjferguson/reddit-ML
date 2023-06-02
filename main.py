@@ -34,3 +34,7 @@ while True:
         break
     else:
         print("Please input Y/N")
+
+#so at this point, we have titles from 25 different sub reddits. Around 11.2k at the time of writing.
+#now need to clean the text. I first noticed there are emojis. So that needs to get dealt with. 
+
