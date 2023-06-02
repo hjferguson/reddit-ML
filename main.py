@@ -25,17 +25,8 @@ with open("subreddits.txt","r") as f: #add as many subreddit as you like, just m
         #pause for 1 sec per request to stay within Reddit's 60 req/min rule
         time.sleep(1) #IMPORTANT
 
-while True:
-    print("Would you like to save the dataframe? Y/N")
-    answer = input()
-    if answer == "y" or answer == "Y":
-        df.to_csv('reddit_title_data.csv', index=False)
-        break
-    if answer == "n" or answer == "N":
-        print("ok bye")
-        break
-    else:
-        print("Please input Y/N")
+print("Saving df to csv...")
+df.to_csv('reddit_title_data.csv', index=False)
 
 #so at this point, we have titles from 25 different sub reddits. Around 11.2k at the time of writing.
 #now need to clean the text. I first noticed there are emojis. So that needs to get dealt with. 
