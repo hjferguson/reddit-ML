@@ -1,5 +1,7 @@
 # reddit-ML
-ML model that takes a reddit post title and guesses which subreddit it belongs to
+ML model that takes a reddit post title and guesses which subreddit it belongs to.
+I decided to use Reddit because they have free API access so that I could learn how to make my own dataset. 
+Chose a Pandas DataFrame because it works well with the scikit-learn library 
 
 <h1>Set up:</h1>
 
