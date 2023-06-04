@@ -1,30 +1,30 @@
                    precision    recall  f1-score   support
 
-              Art       0.90      0.98      0.94        94
-        AskReddit       0.61      0.51      0.56       111
-              DIY       0.68      0.67      0.67        54
-        EarthPorn       0.79      0.93      0.85       103
-             IAmA       0.90      0.90      0.90        70
-      LifeProTips       0.68      0.98      0.80       104
-            Music       0.64      0.55      0.59        96
-   Showerthoughts       0.57      0.25      0.35        68
-       askscience       0.51      0.47      0.49        94
-              aww       0.66      0.59      0.62        97
-            books       0.49      0.78      0.60       147
-explainlikeimfive       0.72      0.98      0.83        94
-             food       0.87      1.00      0.93        90
-          gadgets       0.76      0.66      0.71       100
-           gaming       0.57      0.34      0.43        47
-             gifs       0.51      0.22      0.31       100
-mildlyinteresting       0.51      0.37      0.43       101
-           movies       0.65      0.52      0.58        81
-             news       0.51      0.26      0.35        69
-      nottheonion       0.48      0.47      0.48        87
-          science       0.59      0.66      0.63        95
-            space       0.69      0.77      0.72       108
-    todayilearned       0.73      0.84      0.78       101
-        worldnews       0.68      0.73      0.70        94
+              Art       0.84      0.99      0.91        99
+        AskReddit       0.49      0.78      0.61       253
+              DIY       0.62      0.69      0.65        98
+        EarthPorn       0.77      0.94      0.85       101
+             IAmA       0.71      0.89      0.79        89
+      LifeProTips       0.84      0.96      0.90       101
+            Music       0.71      0.48      0.57       101
+   Showerthoughts       0.46      0.24      0.32        86
+       askscience       0.41      0.25      0.31        91
+              aww       0.68      0.54      0.60       102
+            books       0.74      0.52      0.61       102
+explainlikeimfive       0.78      0.97      0.86        97
+             food       0.85      0.99      0.91        94
+          gadgets       0.67      0.63      0.65        99
+           gaming       0.58      0.46      0.51       104
+             gifs       0.49      0.29      0.36        94
+mildlyinteresting       0.52      0.33      0.40       107
+           movies       0.65      0.47      0.54        98
+             news       0.43      0.43      0.43        84
+      nottheonion       0.35      0.24      0.28        76
+          science       0.63      0.76      0.69        98
+            space       0.66      0.65      0.66       100
+    todayilearned       0.78      0.84      0.81        96
+        worldnews       0.62      0.71      0.66       104
 
-         accuracy                           0.66      2205
-        macro avg       0.65      0.64      0.63      2205
-     weighted avg       0.65      0.66      0.64      2205
+         accuracy                           0.64      2474
+        macro avg       0.64      0.63      0.62      2474
+     weighted avg       0.63      0.64      0.62      2474

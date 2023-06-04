@@ -1,11 +1,11 @@
-#in order to access the API, we need to get an Auth0 token that expires every 2 hours. 
 import requests
 import pandas as pd
 import time
 
-def show_sub_stats(secret_key, personal_key,user,password,subreddit):
+def show_sub_stats(secret_key, personal_key,user,password,subreddit, sort):
     
-    df = pd.DataFrame(columns=['subreddit', 'title'])
+    # Initialize a list to store post data
+    post_data = []
 
     auth = requests.auth.HTTPBasicAuth(personal_key,secret_key)
 
@@ -25,7 +25,7 @@ def show_sub_stats(secret_key, personal_key,user,password,subreddit):
 
         cursor = None
         for _ in range(20):  # make 20 requests, which will give up to 2000 posts
-            url = "https://oauth.reddit.com/r/" + subreddit + "/hot" #top all time only gave 9200 line csv
+            url = "https://oauth.reddit.com/r/" + subreddit + "/" + sort 
             if cursor is not None:
                 url += "?after=" + cursor
             res = requests.get(url, headers=headers)
@@ -34,8 +34,8 @@ def show_sub_stats(secret_key, personal_key,user,password,subreddit):
                 response_json = res.json()
                 if 'data' in response_json:
                     for post in response_json['data']['children']:
-                        new_row = {'subreddit' : subreddit, 'title' : post['data']['title']}
-                        df = pd.concat([df, pd.DataFrame(new_row, index=[0])], ignore_index=True)
+                        # Append a dictionary to the list for each post
+                        post_data.append({'subreddit' : subreddit, 'title' : post['data']['title']})
                     cursor = response_json['data']['after']  # get the cursor for the next page of results
                     if cursor is None:  # if there's no cursor, we've reached the end of the posts
                         break
@@ -48,5 +48,7 @@ def show_sub_stats(secret_key, personal_key,user,password,subreddit):
     else:
         print("Failed to get token from Reddit API. Status code:", res.status_code)
 
-    return df
+    # Convert the list of dictionaries to a DataFrame
+    df = pd.DataFrame(post_data)
 
+    return df
