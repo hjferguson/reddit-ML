@@ -16,6 +16,9 @@ PERSONAL_KEY = os.getenv('PERSONAL')
 USER = os.getenv('USER')
 PASSWORD = os.getenv('PASS')
 
+#set reddit sort methods
+SORT = ('hot','controversial','new','rising','top')
+
 # Check if the CSV file already exists
 if os.path.exists("reddit_title_data.csv"):
     print("It looks like you already have a csv file.")
@@ -36,13 +39,16 @@ if os.path.exists("reddit_title_data.csv"):
 
         with open("subreddits.txt","r") as f: #add as many subreddit as you like, just maintain the format because there is no error handling :D
             for x in f:
-                sub = x.strip('\r\n')
-                df_sub = show_sub_stats(SECRET_KEY, PERSONAL_KEY, USER, PASSWORD, sub)
-                df = pd.concat([df, df_sub], ignore_index=True)
+                for y in SORT:
 
-                #pause for 1 sec per request to stay within Reddit's 60 req/min rule
-                time.sleep(1) #IMPORTANT
-        
+                    sub = x.strip('\r\n')
+                    df_sub = show_sub_stats(SECRET_KEY, PERSONAL_KEY, USER, PASSWORD, sub, y)
+                    df = pd.concat([df, df_sub], ignore_index=True)
+
+                    #pause for 1 sec per request to stay within Reddit's 60 req/min rule
+                    time.sleep(1) #IMPORTANT
+
+        df.drop_duplicates(subset=['post_id'], keep='first', inplace=True)
         df.to_csv('reddit_title_data.csv', index=False)
         
     # User chose to continue with the existing file
@@ -57,15 +63,18 @@ else:
     
     df = pd.DataFrame(columns=['subreddit','title']) #store the name of the subreddit and it's title
 
-    with open("subreddits.txt","r") as f: #add as many subreddits as you like, just maintain the format because there is no error handling :D
+    with open("subreddits.txt","r") as f: #add as many subreddit as you like, just maintain the format because there is no error handling :D
         for x in f:
-            sub = x.strip('\r\n')
-            df_sub = show_sub_stats(SECRET_KEY, PERSONAL_KEY, USER, PASSWORD, sub)
-            df = pd.concat([df, df_sub], ignore_index=True)
+            for y in SORT:
 
-            #pause for 1 sec per request to stay within Reddit's 60 req/min rule
-            time.sleep(1) #IMPORTANT
-    
+                sub = x.strip('\r\n')
+                df_sub = show_sub_stats(SECRET_KEY, PERSONAL_KEY, USER, PASSWORD, sub, y)
+                df = pd.concat([df, df_sub], ignore_index=True)
+
+                #pause for 1 sec per request to stay within Reddit's 60 req/min rule
+                time.sleep(1) #IMPORTANT
+
+    df.drop_duplicates(subset=['subreddit','title'], keep='first', inplace=True)
     df.to_csv('reddit_title_data.csv', index=False)
 
 # Once you have your DataFrame, whether it's from a new collection or an existing file, you can clean it

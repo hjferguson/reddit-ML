@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import time
 
-def show_sub_stats(secret_key, personal_key,user,password,subreddit):
+def show_sub_stats(secret_key, personal_key,user,password,subreddit, sort):
     
     df = pd.DataFrame(columns=['subreddit', 'title'])
 
@@ -25,7 +25,7 @@ def show_sub_stats(secret_key, personal_key,user,password,subreddit):
 
         cursor = None
         for _ in range(20):  # make 20 requests, which will give up to 2000 posts
-            url = "https://oauth.reddit.com/r/" + subreddit + "/hot" #top all time only gave 9200 line csv
+            url = "https://oauth.reddit.com/r/" + subreddit + "/" + sort #top all time only gave 9200 line csv
             if cursor is not None:
                 url += "?after=" + cursor
             res = requests.get(url, headers=headers)
