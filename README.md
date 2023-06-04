@@ -18,7 +18,7 @@ Chose a Pandas DataFrame because it works well with the scikit-learn library
     This will load the correct libraries
     
 🟢 I've provided a subreddits.txt file with 25 popular subreddits. Add/remove where you find necessary. Keeping in mind, subreddits that are heavily photo focused, or "joke" subreddits have a lower
-accuracy for the model. For example r/funny is 0.05 accurate whereas r/IAmA is at 90%. 
+accuracy for the model. For example r/funny is 0.05 accurate whereas r/food is at 85%. 
 
 🟢 Run the 'main.py' program
 
