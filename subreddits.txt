@@ -1,12 +1,9 @@
-funny
 AskReddit
 gaming
 aww
 Music
-pics
 science
 worldnews
-videos
 todayilearned
 movies
 news
@@ -16,10 +13,13 @@ gifs
 IAmA
 food
 askscience
-Jokes
 LifeProTips
 explainlikeimfive
 Art
 books
 mildlyinteresting
 nottheonion
+space
+books
+DIY
+gadgets
