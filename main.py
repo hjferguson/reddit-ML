@@ -17,7 +17,8 @@ USER = os.getenv('USER')
 PASSWORD = os.getenv('PASS')
 
 #set reddit sort methods
-SORT = ('hot','controversial','new','rising','top')
+SORT = ("hot","controversial","new","rising","top")
+
 
 # Check if the CSV file already exists
 if os.path.exists("reddit_title_data.csv"):
@@ -48,7 +49,7 @@ if os.path.exists("reddit_title_data.csv"):
                     #pause for 1 sec per request to stay within Reddit's 60 req/min rule
                     time.sleep(1) #IMPORTANT
 
-        df.drop_duplicates(subset=['post_id'], keep='first', inplace=True)
+        df.drop_duplicates(subset=['subreddit','title'], keep='first', inplace=True)
         df.to_csv('reddit_title_data.csv', index=False)
         
     # User chose to continue with the existing file
@@ -82,7 +83,7 @@ X = redditCleaner(df) #returns cleaned and vectorized array
 y = df['subreddit']
 
 #split the data into training and tests
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.19, random_state=42)
 
 model = MultinomialNB()
 
