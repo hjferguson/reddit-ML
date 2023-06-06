@@ -6,7 +6,6 @@ science
 worldnews
 todayilearned
 movies
-news
 EarthPorn
 IAmA
 food
