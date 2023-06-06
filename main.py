@@ -8,6 +8,7 @@ from cleanFunction import redditCleaner
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report
+import pickle
 
 #model tuning
 from sklearn.model_selection import GridSearchCV
@@ -110,3 +111,6 @@ report = classification_report(y_test, y_pred)
 #save the report to a file
 with open('classification_report.txt', 'w') as f:
     f.write(report)
+
+with open('model.pkl', 'wb') as f:
+    pickle.dump(best_model, f)
