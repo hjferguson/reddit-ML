@@ -1,26 +1,25 @@
                    precision    recall  f1-score   support
 
-              Art       0.85      0.99      0.92        94
-        AskReddit       0.41      0.64      0.50       119
-              DIY       0.69      0.65      0.67        99
-        EarthPorn       0.83      0.98      0.90       107
-             IAmA       0.86      0.91      0.88       106
-      LifeProTips       0.78      0.97      0.87        96
-            Music       0.79      0.55      0.65       105
-              aww       0.71      0.56      0.62       107
-            books       0.69      0.54      0.61        98
-explainlikeimfive       0.77      0.89      0.83        95
-             food       0.84      1.00      0.92       103
-          gadgets       0.78      0.64      0.70        97
-           gaming       0.71      0.62      0.66       105
-mildlyinteresting       0.68      0.42      0.52       106
-           movies       0.70      0.52      0.60       108
-             news       0.55      0.54      0.54        97
-          science       0.68      0.79      0.73        96
-            space       0.71      0.75      0.73        95
-    todayilearned       0.69      0.79      0.74       100
-        worldnews       0.69      0.61      0.65       119
+              Art       0.91      0.99      0.95       104
+        AskReddit       0.45      0.64      0.53       118
+        EarthPorn       0.80      0.95      0.87       109
+             IAmA       0.84      0.89      0.87       101
+      LifeProTips       0.76      0.95      0.84        96
+            Music       0.75      0.55      0.63       102
+              aww       0.73      0.57      0.64       115
+            books       0.68      0.56      0.62        89
+explainlikeimfive       0.79      0.93      0.86        87
+             food       0.90      1.00      0.95       112
+          gadgets       0.84      0.71      0.77       101
+           gaming       0.74      0.60      0.66       107
+mildlyinteresting       0.69      0.53      0.60       107
+           movies       0.67      0.59      0.63        96
+             news       0.59      0.48      0.53       119
+          science       0.69      0.75      0.72        97
+            space       0.69      0.77      0.73        90
+    todayilearned       0.76      0.82      0.79        90
+        worldnews       0.65      0.65      0.65       112
 
-         accuracy                           0.71      2052
-        macro avg       0.72      0.72      0.71      2052
-     weighted avg       0.72      0.71      0.71      2052
+         accuracy                           0.73      1952
+        macro avg       0.73      0.73      0.73      1952
+     weighted avg       0.73      0.73      0.72      1952
