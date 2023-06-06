@@ -18,8 +18,7 @@ belongs to. It doesn't have much real-world use, I was more interested in learni
 🟢 In the correct file path, run: pip install -r requirements.txt
     This will load the correct libraries
     
-🟢 I've provided a subreddits.txt file with 25 popular subreddits. Add/remove where you find necessary. Keeping in mind, subreddits that are heavily photo focused, or "joke" subreddits have a lower
-accuracy for the model. For example r/funny is 0.05 accurate whereas r/food is at 85%. 
+🟢 I've provided a subreddits.txt file with popular subreddits. Add/remove where you find necessary. Subreddits that have strict title formatting perform better than subreddits that are more randomized or media focused. 
 
 🟢 Run the 'main.py' program
 
@@ -31,6 +30,9 @@ I decided to save the created dataframe to csv and give an option to the user to
 creating the dataset takes time (as of writing 30+ minutes) so in order to test and tune the Bayes model, I wanted to skip having to make the data each time. Loading it into memory saves a boat load of testing time! I wanted to split the main functions into seperate files for more readability and then left
 all of the scikit library stuff in the main. So I have the reddit api function in it's own place, the cleaning and vectorizing function in it's own place, 
 and I also save and read from the working directory which allows for users to add their own subreddits if they choose to do so!
+
+I ended up removing the famous askreddit subreddit because it was too difficult to tell it apart
+from other more specific sub reddits. Removing it from dataset greatly increase overall f1 average score.  
 
 All in all, this has been a very fun and interesting project and I can't wait to keep exploring these seriously impressive libraries. 
 
