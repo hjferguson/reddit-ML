@@ -1,9 +1,9 @@
 import pandas as pd
 import nltk
-nltk.download('stopwords')
+nltk.download('stopwords') #when initially running, code won't work without this download. 
 from nltk.corpus import stopwords
-from nltk.stem.porter import PorterStemmer
-from sklearn.feature_extraction.text import CountVectorizer
+from nltk.stem import WordNetLemmatizer
+from sklearn.feature_extraction.text import TfidVectorizer
 
 df = pd.read_csv('reddit_title_data.csv')
 
@@ -26,11 +26,11 @@ def redditCleaner(df):
     stop = stopwords.words('english')
     df['title'] = df['title'].apply(lambda x: ' '.join(word for word in x.split() if word not in stop))
 
-    #stemming/lemmatization. reduce words to their root. example running/runner reduced to run
-    stemmer = PorterStemmer()
-    df['title'] = df['title'].apply(lambda x: ' '.join(stemmer.stem(word) for word in x.split()))
+    #lemmatization. reduce words to their root. example running/runner reduced to run. also considers context which stemmer does not
+    lemmatizer = WordNetLemmatizer()
+    df['title'] = df['title'].apply(lambda x: ' '.join(lemmatizer.lemmatize(word) for word in x.split()))
 
-    #Vectorization. Sounds cool. Turns text into numbers. Some models work off of a 2d array of numbers. So vectorizing is a MUST.
-    vectorizer = CountVectorizer(max_features=1500, min_df=5, max_df=0.7)
-    X = vectorizer.fit_transform(df['title']).toarray()
+    #Vectorization. Sounds cool. Turns text into numbers. This is a TF-IDF vectorizor. Even cooler! Gives importance to words that are less common. 
+    vectorizer = TfidVectorizer(max_features=1500, min_df=5, max_df=0.7)
+    X = vectorizer.fit_transform(df['title'])
     return X
