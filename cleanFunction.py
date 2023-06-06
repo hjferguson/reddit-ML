@@ -1,9 +1,20 @@
 import pandas as pd
 import nltk
-nltk.download('stopwords') #when initially running, code won't work without this download. 
+
+try:
+    nltk.data.find('corpora/wordnet') #requires this dictionary to work
+except LookupError:
+    nltk.download('wordnet')
+
+try:
+    nltk.data.find('corpora/stopwords')  #requires this dictionary to work
+except LookupError:
+    nltk.download('stopwords')                                                        
+
+
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from sklearn.feature_extraction.text import TfidVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 df = pd.read_csv('reddit_title_data.csv')
 
@@ -31,6 +42,6 @@ def redditCleaner(df):
     df['title'] = df['title'].apply(lambda x: ' '.join(lemmatizer.lemmatize(word) for word in x.split()))
 
     #Vectorization. Sounds cool. Turns text into numbers. This is a TF-IDF vectorizor. Even cooler! Gives importance to words that are less common. 
-    vectorizer = TfidVectorizer(max_features=1500, min_df=5, max_df=0.7)
+    vectorizer = TfidfVectorizer(max_features=1500, min_df=5, max_df=0.7)
     X = vectorizer.fit_transform(df['title'])
     return X
