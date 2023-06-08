@@ -27,7 +27,7 @@ function App() {
         </label>
         <input type="submit" value="Submit" />
       </form>
-      <p>Prediction: {prediction}</p> {/* add this line */}
+      <p>Prediction: {prediction}</p> 
     </div>
   );
 }
