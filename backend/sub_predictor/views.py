@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .ml_model.predict_sub import predict_subreddit
 # Create your views here.
-@csrf_exempt
+@csrf_exempt #not recommended for production
 def predict(request):
     if request.method == 'POST':
         text = request.POST['text']
