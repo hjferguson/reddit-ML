@@ -1,5 +1,30 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  
+}
+
+.App form {
+  background-color: #282c34;
+}
+
+.App label {
+  background-color: red;
+  margin-bottom: 0.75em;
+}
+
+.App input[type="text"] {
+  padding: 0.5em;
+  background-color: #61dafb;
+}
+
+.App input[type="submit"] {
+  padding: 0.5em;
+  background-color: chartreuse;
 }
 
 .App-logo {
@@ -36,3 +61,4 @@
     transform: rotate(360deg);
   }
 }
+

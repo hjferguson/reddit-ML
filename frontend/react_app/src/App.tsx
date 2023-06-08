@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './App.css';
 
 function App() {
   const [title, setTitle] = useState("");
@@ -18,7 +19,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="App">
       <form onSubmit={handleSubmit}>
         <label>
           Title:
