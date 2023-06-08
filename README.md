@@ -19,7 +19,7 @@ Average F1 score of 80%
 🟢In root directory run: pip install -r requirements.txt
 
 🟢In setup_scripts: 'subreddits.txt' will be the the subreddits the model will get trained on. These are specifically popular subreddits,
-with titles that have some form of continuity. Subreddits with more randomized topics, or media centered communities won't be as successful with training
+with titles that have some form of continuity. Subreddits with more randomized topics, or media centered communities won't be as successful with training.
 There will be a 'classification_report.txt' generated after training is done which you can use for tuning if necessary.
 
 🟢Navigate to the backend directory and run:
