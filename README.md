@@ -9,12 +9,12 @@ Average F1 score of 80%
 
 🟢In root directory create a .env file and fill in your secrets using this format:
 
-SECRET = "reddit-api-secret"
-PERSONAL = "reddit-api-personal-key"
-
-#reddit credentials
-USER = "reddit-user-name"
-PASS = "reddit-password"
+<br>SECRET = "reddit-api-secret"
+<br>PERSONAL = "reddit-api-personal-key"
+<br>
+<br>#reddit credentials
+<br>USER = "reddit-user-name"
+<br>PASS = "reddit-password"
 
 🟢In root directory run: pip install -r requirements.txt
 
