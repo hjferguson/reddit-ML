@@ -5,7 +5,9 @@ This project includes a feature to generate your own training data using the Red
 Average F1 score of 80%
 
 <h1>Set up:</h1>
--In root directory create a .env file and fill in your secrets using this format:
+🟢Developed on Win11 using bash terminal
+
+🟢In root directory create a .env file and fill in your secrets using this format:
 
 SECRET = "reddit-api-secret"
 PERSONAL = "reddit-api-personal-key"
@@ -14,24 +16,23 @@ PERSONAL = "reddit-api-personal-key"
 USER = "reddit-user-name"
 PASS = "reddit-password"
 
--In root directory run: pip install -r requirements.txt
+🟢In root directory run: pip install -r requirements.txt
 
--In setup_scripts 'subreddits.txt' will be the the subreddits the model will get trained on. These are specifically popular subreddits,
+🟢In setup_scripts: 'subreddits.txt' will be the the subreddits the model will get trained on. These are specifically popular subreddits,
 with titles that have some form of continuity. Subreddits with more randomized topics, or media centered communities won't be as successful with training
 There will be a 'classification_report.txt' generated after training is done which you can use for tuning if necessary.
 
--Navigate to the backend directory and run:
+🟢Navigate to the backend directory and run:
 
 python manage.py runserver
 
-Open another bash terminal and navigate to the frontend/react_app directory
+🟢Open another bash terminal and navigate to the frontend/react_app directory and run:
 
 npm start
 
 
-<h2>Design thoughts</h2>
+<h1>Design thoughts</h1>
 When I first began this project, I had never used Pandas (dataframes), the reddit API, or anything related to machine learning / artificial intelligence. 
-So this project has been a really good starting point. I think especially since I made my own dataset instead of using an exsisting dataset because it made
-they tuning process more interesting. I have some Typescript / Django experience but this project also gave me the experience of fully implementing these frameworks from scratch. 
+So this project has been a really good starting point. I initially was going to start with ML on a professionally created dataset so that I could just focus on implementing ML, but I ultimately decided to make my own dataset because I want the skills to go out and gather data, process the data, and then train on the data. I also had this project working as a console app, then refactored everything to work as a full-stack application. I'm a full-stack student so I figured I should have full-stack projects for my portfolio 😅 Needless to say, I should have started the project with the boilerplate React and Django frameworks in place, but I did learn a lot on the refactoring process so it was totally worth it!
 
-One challenge in particular was how I approached the project. I first made it a working console application and then made it full-stack after I had the console app fully functioning. In the inifficiencies I lost, I made up for in refactoring experience. I'm excited to try image recognition ML next... 
+Harlan
