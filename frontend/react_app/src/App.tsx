@@ -23,11 +23,11 @@ function App() {
       <form onSubmit={handleSubmit}>
         <label>
           Title:
-          <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
+          <input type="text" value={title} onChange={e => setTitle(e.target.value)} placeholder="Enter your Reddit post title here" />
         </label>
         <input type="submit" value="Submit" />
       </form>
-      <p>Prediction: {prediction}</p> 
+      <p>Prediction: r/{prediction}</p> 
     </div>
   );
 }

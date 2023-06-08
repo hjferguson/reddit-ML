@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
   display: flex;
@@ -5,50 +11,67 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  
-  
+  background-color: #F4F4F4;
 }
 
 .App form {
-  background-color: #282c34; 
-  padding: 1em; 
+  background-color: #FFFFFF; 
+  padding: 2em; 
   border-radius: 8px;
   margin-bottom: 1em; 
-  border-color: orangered;
-  min-width: 30%;
-  
-  
+  border: 2px solid #E0E0E0;
+  min-width: 35%;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .App label {
-  background-color: blanchedalmond;
-  margin-bottom: 0.75em;
-  display: block; 
-  box-sizing: border-box;
-  
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em; 
+}
+
+.App label span {
+  font-size: 0.9em;
+  color: #333;
 }
 
 .App input[type="text"] {
   padding: 0.5em;
-  background-color: grey;
-  width: 100%; 
-  border: none; 
+  background-color: #FAFAFA;
+  flex-grow: 1;
+  margin-left: 0.5em;
+  border: 2px solid #E0E0E0;
   border-radius: 4px; 
-  margin-bottom: 0.5em; 
   box-sizing: border-box;
-  height: 2.5em; 
-  
+}
 
+.App input[type="text"]:focus {
+  outline: none;
+  border-color: #A5D6A7;
 }
 
 .App input[type="submit"] {
-  padding: 0.5em;
-  background-color: blanchedalmond;
+  padding: 1em;
+  font-size: 0.9em;
+  background-color: #A5D6A7;
   border: none; 
   border-radius: 4px; 
   cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  align-self: center;
+  
+}
+
+.App input[type="submit"]:hover {
+  background-color: #81C784;
+  transform: scale(1.05);
 }
 
 .App p {
   margin-top: 1em; 
+  color: #333;
 }
