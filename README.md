@@ -35,4 +35,4 @@ npm start
 When I first began this project, I had never used Pandas (dataframes), the reddit API, or anything related to machine learning / artificial intelligence. 
 So this project has been a really good starting point. I initially was going to start with ML on a professionally created dataset so that I could just focus on implementing ML, but I ultimately decided to make my own dataset because I want the skills to go out and gather data, process the data, and then train on the data. I also had this project working as a console app, then refactored everything to work as a full-stack application. I'm a full-stack student so I figured I should have full-stack projects for my portfolio 😅 Needless to say, I should have started the project with the boilerplate React and Django frameworks in place, but I did learn a lot on the refactoring process so it was totally worth it!
 
-Harlan
+<br>Harlan
