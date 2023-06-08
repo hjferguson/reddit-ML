@@ -44,9 +44,12 @@ def training_montage():
     with open('classification_report.txt', 'w') as f:
         f.write(report)
 
+    script_dir = os.path.dirname(__file__)
+    model_path = os.path.join(script_dir, '../backend/sub_predictor/ml_model/model.pkl')
+    vector_path = os.path.join(script_dir, '../backend/sub_predictor/ml_model/vectorizer.pkl')
     #save instance of model in the django app
-    with open('../sub_predictor/ml_model/model.pkl', 'wb') as f:
+    with open(model_path, 'wb') as f:
         pickle.dump(best_model, f)
 
-    with open('../sub_predictor/ml_model/vectorizer.pkl', 'wb') as f:
+    with open(vector_path, 'wb') as f:
         pickle.dump(vectorizer, f)
