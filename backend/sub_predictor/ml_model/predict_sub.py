@@ -1,11 +1,16 @@
 import pickle
-from clean_function import redditCleaner
+import os
+from .clean_function import redditCleaner
 
 def predict_subreddit(title):
-    with open('model.pkl', 'rb') as f:
+
+    model_path = os.path.join(os.path.dirname(__file__), 'model.pkl')
+    vector_path = os.path.join(os.path.dirname(__file__), 'vectorizer.pkl')
+
+    with open(model_path, 'rb') as f:
         model = pickle.load(f)
 
-    with open('vectorizer.pkl' , 'rb') as f:
+    with open(vector_path , 'rb') as f:
         vectorizer = pickle.load(f)
 
     #clean user input
@@ -13,4 +18,4 @@ def predict_subreddit(title):
 
     prediction = model.predict(clean_title)
 
-    return prediction
+    return str(prediction[0])
