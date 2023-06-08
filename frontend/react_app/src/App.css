@@ -25,6 +25,7 @@
   margin-bottom: 0.75em;
   display: block; 
   box-sizing: border-box;
+  
 }
 
 .App input[type="text"] {
@@ -36,6 +37,7 @@
   margin-bottom: 0.5em; 
   box-sizing: border-box;
   height: 2.5em; 
+  
 
 }
 
