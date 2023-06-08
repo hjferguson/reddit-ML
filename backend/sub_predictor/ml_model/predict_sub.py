@@ -1,8 +1,5 @@
 import pickle
-from cleanFunction import redditCleaner
-
-
-
+from clean_function import redditCleaner
 
 def predict_subreddit(title):
     with open('model.pkl', 'rb') as f:

@@ -20,6 +20,8 @@ belongs to. It doesn't have much real-world use, I was more interested in learni
     
 🟢 I've provided a subreddits.txt file with popular subreddits. Add/remove where you find necessary. Subreddits that have strict title formatting perform better than subreddits that are more randomized or media focused. 
 
+🟢Install node.js if not already on system. https://nodejs.org/
+
 🟢 Run the 'main.py' program
 
 ⛔⛔I recommend not touching any part of the code that uses the 'time' module. Reddit has specific rules with their API and if you make too many requests 
